@@ -1,0 +1,65 @@
+{
+	"AWSTEMPLATEFORMATVERSION": "2010-09-09",
+	"RESOURCES" : {
+		"myVPC" : {
+			"Type" : "AWS::EC2::VPC",
+			"Properties" : {
+				"CidrBlock" : "10.0.0.0/16",
+				"EnableDnsHostnames": "true",
+				"EnableDnsSupport" : "true",
+				"Tags" : [
+					{"Key" : "Name", "value" : "egs_training"}
+				]
+				
+			}
+		},
+		"myInternetGateway" : {
+			"Type" : "AWS::EC2::InternetGateway",
+			  "Properties" : {
+				  "Tags" : [{"key" : "stack", "Value" : "egs"}]
+				 
+		} 
+	},
+	"VpcInGateAtt" : {
+		 "Type" : "AWS::EC2::VPCGatewayAttachment",
+		  "Properties" : {
+		  	"InternetGatewayId" : {
+		  		"Ref" : "myInternetGateway"
+		  	},
+			"VpcId" : {
+				"Ref" : "myVPC"
+			}
+		  }
+	},
+	"publicSubnet" : {
+		"Type" : "AWS::EC2::Subnet",
+		"Properties" : {
+			"CidrBlock" : "10.0.0.0/24",
+			"Tags" : [{"Key" : "Env" , "Value" : "Training"}],
+			"VpcId" : {
+				"Ref"  : "myVPC"
+			}
+		}
+		} ,
+		"privateSubnet" : {
+			"Type" : "AWS::EC2::Subnet",
+			"Properties" : {
+				"CidrBlock" : "10.0.1.0/24",
+				"Tags" : [{"Key" : "Env" , "Value" : "Training"}],
+				"VpcId" : {
+					"Ref"  : "myVPC"
+				}
+			}
+		} 
+	}
+}
+		
+		
+			
+		
+			
+			
+				
+		
+		
+	
