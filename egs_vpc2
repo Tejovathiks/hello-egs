@@ -1,6 +1,6 @@
 {
-	"AWSTEMPLATEFORMATVERSION": "2010-09-09",
-	"RESOURCES" : {
+	"AWSTemplateFormation": "2010-09-09",
+	"Resources" : {
 		"myVPC" : {
 			"Type" : "AWS::EC2::VPC",
 			"Properties" : {
@@ -8,7 +8,7 @@
 				"EnableDnsHostnames": "true",
 				"EnableDnsSupport" : "true",
 				"Tags" : [
-					{"Key" : "Name", "value" : "egs_training"}
+					{"Key" : "Name", "Value" : "egs_training"}
 				]
 				
 			}
@@ -16,7 +16,7 @@
 		"myInternetGateway" : {
 			"Type" : "AWS::EC2::InternetGateway",
 			  "Properties" : {
-				  "Tags" : [{"key" : "stack", "Value" : "egs"}]
+				  "Tags" : [{"Key" : "stack", "Value" : "egs"}]
 				 
 		} 
 	},
